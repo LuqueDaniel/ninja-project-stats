@@ -1,0 +1,7 @@
+{
+  "venv": "", 
+  "project-type": "NINJA-Plugin-Project", 
+  "name": "project-stats", 
+  "license": "GNU General Public License v3", 
+  "description": "Project Stats is a plugin for NINJA-IDE"
+}
