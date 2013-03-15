@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Project-Stats. If not, see <http://www.gnu.org/licenses/>.
 #
-#Source url (https://github.com/LuqueDaniel/ninja-project-stats)
+# Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
 """
     This module contain all functions and class for get stats
@@ -84,6 +84,8 @@ class getStats(object):
 
         if dicKey == 'numberPyLines':
             self.info['numberPyLines'] += len(self.openFile)
-            self.info['pyFilesLines'][fileName] = len(self.openFile)
+            self.info['pyFilesLines'][filePath] = {'name': fileName,
+                                                   'lines': len(self.openFile)}
         else:
-            self.info['generalFilesLines'][fileName] = len(self.openFile)
+            self.info['generalFilesLines'][filePath] = {'name': fileName,
+                                                   'lines': len(self.openFile)}

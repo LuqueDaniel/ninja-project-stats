@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Project-Stats. If not, see <http://www.gnu.org/licenses/>.
 #
-#Source url (https://github.com/LuqueDaniel/ninja-project-stats)
+# Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
 """
     This module contain resources for project-stats
@@ -22,4 +22,4 @@
 #Tupla with ignore folders
 IGNORE_FOLDERS = ('.git', '_MACOSX')
 #String with ignore file extensions
-IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.psd|\.exe|\.dll|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf)$"
+IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"

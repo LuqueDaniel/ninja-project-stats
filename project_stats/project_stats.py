@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Project-Stats. If not, see <http://www.gnu.org/licenses/>.
 #
-#Source url (https://github.com/LuqueDaniel/ninja-project-stats)
+# Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
 #NINJA-IDE imports
 from ninja_ide.core import plugin
@@ -118,9 +118,8 @@ class projectStatDialog(QDialog):
 
         row = 0
         for item in list(self.projectStats.info[dictKey].items()):
-            table.setItem(row, 0, QTableWidgetItem(item[0]))
-            table.setItem(row, 1, QTableWidgetItem(str(item[1])))
-
+            table.setItem(row, 0, QTableWidgetItem(item[1]['name']))
+            table.setItem(row, 1, QTableWidgetItem(str(item[1]['lines'])))
             row += 1
 
 
