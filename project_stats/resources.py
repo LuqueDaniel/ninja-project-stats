@@ -21,5 +21,6 @@
 
 #Tupla with ignore folders
 IGNORE_FOLDERS = ('.git', '_MACOSX')
+
 #String with ignore file extensions
 IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"
