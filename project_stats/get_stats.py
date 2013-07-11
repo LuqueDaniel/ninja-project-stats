@@ -39,7 +39,7 @@ class getStats(object):
         Atributes:
                 info --> Dictionary with all information.
                 projectPath --> Project path.
-                ignoreFolders --> List with ignore folders."""
+    """
 
     def __init__(self, projectPath):
         #Project path
@@ -86,8 +86,10 @@ class getStats(object):
 
         if dicKey == 'numberPyLines':
             self.info['numberPyLines'] += len(self.openFile)
-            self.info['pyFilesLines'][filePath] = {'name': fileName,
-                                                   'lines': len(self.openFile)}
+            self.info['pyFilesLines'][filePath] = {
+                'pathInProject': filePath[len(self.projectPath):len(filePath)],
+                'lines': len(self.openFile)}
         else:
-            self.info['generalFilesLines'][filePath] = {'name': fileName,
-                                                   'lines': len(self.openFile)}
+            self.info['generalFilesLines'][filePath] = {
+                'pathInProject': filePath[len(self.projectPath):len(filePath)],
+                'lines': len(self.openFile)}

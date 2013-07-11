@@ -102,7 +102,7 @@ class projectStatDialog(QDialog):
         self.vLayout.addLayout(self.layoutTab)
 
     def _configTable(self, table, dictKey):
-        self.tableHeaders = ('Name', 'Number of lines')
+        self.tableHeaders = ('Path & File name', 'Number of lines')
         table.setRowCount(len(self.projectStats.info[dictKey]))
         table.setHorizontalHeaderLabels(self.tableHeaders)
         #No edit items
@@ -118,7 +118,7 @@ class projectStatDialog(QDialog):
 
         row = 0
         for item in list(self.projectStats.info[dictKey].items()):
-            table.setItem(row, 0, QTableWidgetItem(item[1]['name']))
+            table.setItem(row, 0, QTableWidgetItem(item[1]['pathInProject']))
             table.setItem(row, 1, QTableWidgetItem(str(item[1]['lines'])))
             row += 1
 
