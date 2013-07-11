@@ -15,6 +15,10 @@
 #
 # Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
+"""
+    This module contain the main function of the plugin.
+"""
+
 #NINJA-IDE imports
 from ninja_ide.core import plugin
 
@@ -33,10 +37,18 @@ from PyQt4.QtGui import QAbstractItemView
 from .get_stats import getStats
 
 
-class projectStatDialog(QDialog):
+class projectStatsDialog(QDialog):
+    """This class show project stats in a QDialog.
+
+    init Parameters:
+        projectInfo: Information of the current project.
+
+    Attributes:
+        projectStats: Contain stats of the project.
+    """
 
     def __init__(self, projectInfo):
-        super(projectStatDialog, self).__init__()
+        super(projectStatsDialog, self).__init__()
         self.setWindowTitle('Project Stats - %s' % projectInfo.name)
         self.setMinimumSize(500, 400)
         self.setMaximumSize(0, 0)
@@ -102,6 +114,13 @@ class projectStatDialog(QDialog):
         vLayout.addLayout(layoutTab)
 
     def _configTable(self, table, dictKey):
+        """This function configure a table.
+
+        Parameters:
+            table: Table to configure.
+            dictKey: The dictKey.
+        """
+
         self.tableHeaders = ('Path & File name', 'Number of lines')
         table.setRowCount(len(self.projectStats.info[dictKey]))
         table.setHorizontalHeaderLabels(self.tableHeaders)
@@ -124,8 +143,15 @@ class projectStatDialog(QDialog):
 
 
 class projectStatsMain(plugin.Plugin):
+    """Main class of the plugin.
+
+    Attributes:
+        ex_locator: ninja-ide explorer service.
+    """
 
     def initialize(self):
+        """This function start plugin"""
+
         #Create plugin menu
         menu = QMenu()
         menu.setTitle('Project Stats')
@@ -136,9 +162,11 @@ class projectStatsMain(plugin.Plugin):
         self.ex_locator.add_project_menu(menu)
 
     def projectStatAction(self):
+        """Init projectStatsDialog"""
+
         #Get project properties
         self.currentProject = self.ex_locator.get_tree_projects()._get_project_root()
 
         #Instance projectStatDialog
-        self.projectStatDialog = projectStatDialog(self.currentProject)
-        self.projectStatDialog.show()
+        self.projectStatsDialog = projectStatsDialog(self.currentProject)
+        self.projectStatsDialog.show()

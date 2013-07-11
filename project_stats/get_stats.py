@@ -36,9 +36,12 @@ from .resources import IGNORE_FILE_TYPES
 class getStats(object):
     """This class get all information.
 
-        Atributes:
-                info --> Dictionary with all information.
-                projectPath --> Project path.
+    init Parameters:
+        projectPath: Path of the project.
+
+    Attributes:
+        info: Dictionary with all information.
+        projectPath: Project path.
     """
 
     def __init__(self, projectPath):
@@ -54,7 +57,11 @@ class getStats(object):
         self.__pathAnalyzer(self.projectPath)
 
     def __pathAnalyzer(self, projectPath):
-        """Analyze folders and files"""
+        """Analyze folders and files.
+
+        Parameters:
+            projectPath: Path of the project.
+        """
 
         listFiles = listdir(projectPath)
 
@@ -79,7 +86,13 @@ class getStats(object):
                     self.__lineCounter(itemSrc, item)
 
     def __lineCounter(self, filePath, fileName, dicKey='numberLines'):
-        """Counter lines in files"""
+        """Counter lines in files.
+
+        Parameters:
+            filePath: Path of the file.
+            fileName: File name.
+            dicKey: The dict key.
+        """
 
         openFile = open(filePath, 'r').readlines()
         self.info['numberLines'] += len(openFile)

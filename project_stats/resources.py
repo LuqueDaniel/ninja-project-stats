@@ -16,7 +16,12 @@
 # Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
 """
-    This module contain resources for project-stats
+    This module contain resources for project-stats.
+
+    Attributes:
+        IGNORE_FOLDERS: Ignore folders.
+        IGNORE_FILES: Ignore files.
+        IGNORE_FILE_TYPES: String with ignore file extensions.
 """
 
 #Tupla with ignore folders
