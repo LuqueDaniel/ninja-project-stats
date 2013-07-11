@@ -28,6 +28,7 @@ from re import search
 from re import IGNORECASE
 
 #PROJECT-STATS imports
+from resources import IGNORE_FILES
 from resources import IGNORE_FOLDERS
 from resources import IGNORE_FILE_TYPES
 
@@ -66,7 +67,8 @@ class getStats(object):
                     self.__pathAnalyzer(self.itemSrc)
 
             elif path.isfile(self.itemSrc):
-                self.info['numberFiles'] += 1
+                if item not in IGNORE_FILES:
+                    self.info['numberFiles'] += 1
 
                 if search('.+\.py$', item):
                     self.info['numberPyFiles'] += 1
