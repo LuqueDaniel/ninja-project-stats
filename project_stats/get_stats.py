@@ -28,9 +28,9 @@ from re import search
 from re import IGNORECASE
 
 #PROJECT-STATS imports
-from resources import IGNORE_FILES
-from resources import IGNORE_FOLDERS
-from resources import IGNORE_FILE_TYPES
+from .resources import IGNORE_FILES
+from .resources import IGNORE_FOLDERS
+from .resources import IGNORE_FILE_TYPES
 
 
 class getStats(object):

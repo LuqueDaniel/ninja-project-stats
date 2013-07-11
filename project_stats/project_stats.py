@@ -30,7 +30,7 @@ from PyQt4.QtGui import QTableWidget
 from PyQt4.QtGui import QAbstractItemView
 
 #PROJECT-STATS imports
-from get_stats import getStats
+from .get_stats import getStats
 
 
 class projectStatDialog(QDialog):
