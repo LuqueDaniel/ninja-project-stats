@@ -56,40 +56,40 @@ class getStats(object):
     def __pathAnalyzer(self, projectPath):
         """Analyze folders and files"""
 
-        self.listFiles = listdir(projectPath)
+        listFiles = listdir(projectPath)
 
-        for item in self.listFiles:
-            self.itemSrc = path.join(projectPath, item)
+        for item in listFiles:
+            itemSrc = path.join(projectPath, item)
 
-            if path.isdir(self.itemSrc):
+            if path.isdir(itemSrc):
                 if item not in IGNORE_FOLDERS:
                     self.info['numberFolders'] += 1
-                    self.__pathAnalyzer(self.itemSrc)
+                    self.__pathAnalyzer(itemSrc)
 
-            elif path.isfile(self.itemSrc):
+            elif path.isfile(itemSrc):
                 if item not in IGNORE_FILES:
                     self.info['numberFiles'] += 1
 
                 if search('.+\.py$', item):
                     self.info['numberPyFiles'] += 1
-                    self.__lineCounter(self.itemSrc, item, 'numberPyLines')
+                    self.__lineCounter(itemSrc, item, 'numberPyLines')
                 elif search('.+\.pyc$', item):
                     self.info['numberPycFiles'] += 1
                 elif search(IGNORE_FILE_TYPES, item, IGNORECASE) is None:
-                    self.__lineCounter(self.itemSrc, item)
+                    self.__lineCounter(itemSrc, item)
 
     def __lineCounter(self, filePath, fileName, dicKey='numberLines'):
         """Counter lines in files"""
 
-        self.openFile = open(filePath, 'r').readlines()
-        self.info['numberLines'] += len(self.openFile)
+        openFile = open(filePath, 'r').readlines()
+        self.info['numberLines'] += len(openFile)
 
         if dicKey == 'numberPyLines':
-            self.info['numberPyLines'] += len(self.openFile)
+            self.info['numberPyLines'] += len(openFile)
             self.info['pyFilesLines'][filePath] = {
                 'pathInProject': filePath[len(self.projectPath):len(filePath)],
-                'lines': len(self.openFile)}
+                'lines': len(openFile)}
         else:
             self.info['generalFilesLines'][filePath] = {
                 'pathInProject': filePath[len(self.projectPath):len(filePath)],
-                'lines': len(self.openFile)}
+                'lines': len(openFile)}
