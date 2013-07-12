@@ -31,4 +31,4 @@ IGNORE_FOLDERS = ('.git', '_MACOSX')
 IGNORE_FILES = ('Thumbs.db')
 
 #String with ignore file extensions
-IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.db|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"
+IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.mkv|\.mp3|\.db|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"
