@@ -7,7 +7,7 @@ Licensed under: **GPLv3**
 
 Download packages.
 ----------------------------------------------------------------------------------------------------------------
-**[Download packages](https://github.com/LuqueDaniel/ninja-project-stats/blob/master/packages/ninja-project-stats.zip)**
+**[Download packages](https://github.com/LuqueDaniel/ninja-project-stats/blob/master/packages/ninja-project-stats.zip?raw=true)**
 
 Changelog.
 ----------------------------------------------------------------------------------------------------------------
