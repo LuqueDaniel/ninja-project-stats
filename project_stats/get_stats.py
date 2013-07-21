@@ -28,17 +28,21 @@ from re import search
 from re import IGNORECASE
 
 #PROJECT-STATS imports
-from resources import IGNORE_FOLDERS
-from resources import IGNORE_FILE_TYPES
+from .resources import IGNORE_FILES
+from .resources import IGNORE_FOLDERS
+from .resources import IGNORE_FILE_TYPES
 
 
 class getStats(object):
     """This class get all information.
 
-        Atributes:
-                info --> Dictionary with all information.
-                projectPath --> Project path.
-                ignoreFolders --> List with ignore folders."""
+    init Parameters:
+        projectPath: Path of the project.
+
+    Attributes:
+        info: Dictionary with all information.
+        projectPath: Project path.
+    """
 
     def __init__(self, projectPath):
         #Project path
@@ -53,39 +57,52 @@ class getStats(object):
         self.__pathAnalyzer(self.projectPath)
 
     def __pathAnalyzer(self, projectPath):
-        """Analyze folders and files"""
+        """Analyze folders and files.
 
-        self.listFiles = listdir(projectPath)
+        Parameters:
+            projectPath: Path of the project.
+        """
 
-        for item in self.listFiles:
-            self.itemSrc = path.join(projectPath, item)
+        listFiles = listdir(projectPath)
 
-            if path.isdir(self.itemSrc):
+        for item in listFiles:
+            itemSrc = path.join(projectPath, item)
+
+            if path.isdir(itemSrc):
                 if item not in IGNORE_FOLDERS:
                     self.info['numberFolders'] += 1
-                    self.__pathAnalyzer(self.itemSrc)
+                    self.__pathAnalyzer(itemSrc)
 
-            elif path.isfile(self.itemSrc):
-                self.info['numberFiles'] += 1
+            elif path.isfile(itemSrc):
+                if item not in IGNORE_FILES:
+                    self.info['numberFiles'] += 1
 
                 if search('.+\.py$', item):
                     self.info['numberPyFiles'] += 1
-                    self.__lineCounter(self.itemSrc, item, 'numberPyLines')
+                    self.__lineCounter(itemSrc, item, 'numberPyLines')
                 elif search('.+\.pyc$', item):
                     self.info['numberPycFiles'] += 1
                 elif search(IGNORE_FILE_TYPES, item, IGNORECASE) is None:
-                    self.__lineCounter(self.itemSrc, item)
+                    self.__lineCounter(itemSrc, item)
 
     def __lineCounter(self, filePath, fileName, dicKey='numberLines'):
-        """Counter lines in files"""
+        """Counter lines in files.
 
-        self.openFile = open(filePath, 'r').readlines()
-        self.info['numberLines'] += len(self.openFile)
+        Parameters:
+            filePath: Path of the file.
+            fileName: File name.
+            dicKey: The dict key.
+        """
+
+        openFile = open(filePath, 'r').readlines()
+        self.info['numberLines'] += len(openFile)
 
         if dicKey == 'numberPyLines':
-            self.info['numberPyLines'] += len(self.openFile)
-            self.info['pyFilesLines'][filePath] = {'name': fileName,
-                                                   'lines': len(self.openFile)}
+            self.info['numberPyLines'] += len(openFile)
+            self.info['pyFilesLines'][filePath] = {
+                'pathInProject': filePath[len(self.projectPath):len(filePath)],
+                'lines': len(openFile)}
         else:
-            self.info['generalFilesLines'][filePath] = {'name': fileName,
-                                                   'lines': len(self.openFile)}
+            self.info['generalFilesLines'][filePath] = {
+                'pathInProject': filePath[len(self.projectPath):len(filePath)],
+                'lines': len(openFile)}

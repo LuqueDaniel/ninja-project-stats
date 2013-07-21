@@ -16,11 +16,19 @@
 # Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
 """
-    This module contain resources for project-stats
+    This module contain resources for project-stats.
+
+    Attributes:
+        IGNORE_FOLDERS: Ignore folders.
+        IGNORE_FILES: Ignore files.
+        IGNORE_FILE_TYPES: String with ignore file extensions.
 """
 
 #Tupla with ignore folders
 IGNORE_FOLDERS = ('.git', '_MACOSX')
 
+#Tupla with ignore files
+IGNORE_FILES = ('Thumbs.db')
+
 #String with ignore file extensions
-IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"
+IGNORE_FILE_TYPES = ".+(\.pyc|\.py|\.mkv|\.mp3|\.db|\.psd|\.doc|\.pdf|\.bmp|\.png|\.ico|\.gif|\.jpg|\.jpeg|\.xcf|\.swf|\.zip|\.rar|\.iso|\.dll|\.exe)$"
