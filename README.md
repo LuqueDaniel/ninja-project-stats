@@ -7,9 +7,9 @@ Licensed under: **GPLv3**
 
 Download packages.
 ----------------------------------------------------------------------------------------------------------------
-- **Download and install from NINJA-IDE plugin manager**
-- **[Download NINJA-IDE site](http://ninja-ide.org/plugins/39/)**
-- **[Download packages](https://github.com/LuqueDaniel/ninja-project-stats/blob/master/packages/ninja-project-stats.zip?raw=true)**
+- **Download and install from NINJA-IDE plugin manager.**
+- **[Download from NINJA-IDE site](http://ninja-ide.org/plugins/39/).**
+- **[Download package](https://github.com/LuqueDaniel/ninja-project-stats/blob/master/packages/ninja-project-stats.zip?raw=true).**
 
 Changelog.
 ----------------------------------------------------------------------------------------------------------------
