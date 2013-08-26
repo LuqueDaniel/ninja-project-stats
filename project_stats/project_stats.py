@@ -23,15 +23,8 @@
 from ninja_ide.core import plugin
 
 #PyQt4.QtGui imports
-from PyQt4.QtGui import QMenu
-from PyQt4.QtGui import QDialog
-from PyQt4.QtGui import QLabel
-from PyQt4.QtGui import QVBoxLayout
-from PyQt4.QtGui import QTabWidget
-from PyQt4.QtGui import QWidget
-from PyQt4.QtGui import QTableWidgetItem
-from PyQt4.QtGui import QTableWidget
-from PyQt4.QtGui import QAbstractItemView
+from PyQt4.QtGui import (QMenu, QDialog, QLabel, QVBoxLayout, QTabWidget,
+    QTableWidgetItem, QTableWidget, QAbstractItemView, QGroupBox)
 
 #PROJECT-STATS imports
 from .get_stats import getStats
@@ -48,8 +41,9 @@ class projectStatsDialog(QDialog):
     """
 
     def __init__(self, projectInfo):
+        ' init projectStatsDialog class '
         super(projectStatsDialog, self).__init__()
-        self.setWindowTitle('Project Stats - %s' % projectInfo.name)
+        self.setWindowTitle('Project Stats - {}'.format(projectInfo.name))
         self.setMinimumSize(500, 400)
         self.setMaximumSize(0, 0)
 
@@ -58,28 +52,29 @@ class projectStatsDialog(QDialog):
 
         #tabMenu
         tabMenu = QTabWidget()
+        tabMenu.tabCloseRequested.connect(lambda: tabMenu.setTabPosition(1)
+                if tabMenu.tabPosition() == 0 else tabMenu.setTabPosition(0))
+        tabMenu.setMovable(True)
+        tabMenu.setTabsClosable(True)
 
         #LAYOUTS
         #layoutTab
-        layoutTab = QVBoxLayout()
+        layoutTab, layoutTabGeneral = QVBoxLayout(), QVBoxLayout()
         layoutTab.addWidget(tabMenu)
-
-        #==Add layoutTabGeneral
-        layoutTabGeneral = QVBoxLayout()
-        layoutTabGeneral.addWidget(QLabel('Number of folders: %i' %
-                                    self.projectStats.info['numberFolders']))
-        layoutTabGeneral.addWidget(QLabel('Number of files: %i' %
-                                    self.projectStats.info['numberFiles']))
-        layoutTabGeneral.addWidget(QLabel('Total number of lines: %i' %
-                                    self.projectStats.info['numberLines']))
 
         #Add table fileTabGeneral at layoutTabGeneral
         fileTableGeneral = QTableWidget(0, 2)
         self._configTable(fileTableGeneral, 'generalFilesLines')
-        layoutTabGeneral.addWidget(fileTableGeneral)
+
+        for each_widget in (
+            QLabel('Number of folders: {}'.format(self.projectStats.info['numberFolders'])),
+            QLabel('Number of files: {}'.format(self.projectStats.info['numberFiles'])),
+            QLabel('Total number of lines: {}'.format(self.projectStats.info['numberLines'])),
+            fileTableGeneral):
+            layoutTabGeneral.addWidget(each_widget)
 
         #add widget tabGeneral at tabMenu
-        tabGeneral = QWidget()
+        tabGeneral, tabPy = QGroupBox(), QGroupBox()
         tabGeneral.setLayout(layoutTabGeneral)
         tabMenu.addTab(tabGeneral, 'General')
 
@@ -87,20 +82,19 @@ class projectStatsDialog(QDialog):
         #if project contain py files add a py tab
         if self.projectStats.info['numberPyFiles'] != 0:
             layoutTabPy = QVBoxLayout()
-            layoutTabPy.addWidget(QLabel('Number of .py files: %i' %
-                                    self.projectStats.info['numberPyFiles']))
-            layoutTabPy.addWidget(QLabel('Number of .pyc files: %i' %
-                                    self.projectStats.info['numberPycFiles']))
-            layoutTabPy.addWidget(QLabel('Total number of lines: %i' %
-                                    self.projectStats.info['numberPyLines']))
 
             #add table fileTablelist at layoutTabPy
             fileTablePy = QTableWidget(10, 2)
             self._configTable(fileTablePy, 'pyFilesLines')
-            layoutTabPy.addWidget(fileTablePy)
+
+            for each_widget in (
+                QLabel('Number of .py files: {}'.format(self.projectStats.info['numberPyFiles'])),
+                QLabel('Number of .pyc files: {}'.format(self.projectStats.info['numberPycFiles'])),
+                QLabel('Total number of lines: {}'.format(self.projectStats.info['numberPyLines'])),
+                fileTablePy):
+                layoutTabPy.addWidget(each_widget)
 
             #add Widget TabPy at tabMenu
-            tabPy = QWidget()
             tabPy.setLayout(layoutTabPy)
             tabMenu.addTab(tabPy, '.py')
 
@@ -108,8 +102,8 @@ class projectStatsDialog(QDialog):
         vLayout = QVBoxLayout(self)
         vLayout.setContentsMargins(15, 10, 15, 10)
         #add label with project name
-        vLayout.addWidget(QLabel('<b>Project name:</b> %s' %
-                                projectInfo.name))
+        vLayout.addWidget(QLabel('<b>Project name:</b> {}'.format(
+                                                            projectInfo.name)))
         #add tabMenu
         vLayout.addLayout(layoutTab)
 
@@ -153,8 +147,7 @@ class projectStatsMain(plugin.Plugin):
         """This function start plugin"""
 
         #Create plugin menu
-        menu = QMenu()
-        menu.setTitle('Project Stats')
+        menu = QMenu('Project Stats')
         menu.addAction('Project Stats', lambda: self.projectStatAction())
 
         #Add Project Stats menu

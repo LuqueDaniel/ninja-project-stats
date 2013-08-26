@@ -45,6 +45,7 @@ class getStats(object):
     """
 
     def __init__(self, projectPath):
+        ' init getStats class '
         #Project path
         self.projectPath = projectPath
         #Dictionary with all information
@@ -94,15 +95,16 @@ class getStats(object):
             dicKey: The dict key.
         """
 
-        openFile = open(filePath, 'r').readlines()
-        self.info['numberLines'] += len(openFile)
+        with open(filePath, 'r') as the_file:
+            openFile = the_file.readlines()
+            self.info['numberLines'] += len(openFile)
 
-        if dicKey == 'numberPyLines':
-            self.info['numberPyLines'] += len(openFile)
-            self.info['pyFilesLines'][filePath] = {
+            if dicKey == 'numberPyLines':
+                self.info['numberPyLines'] += len(openFile)
+                self.info['pyFilesLines'][filePath] = {
                 'pathInProject': filePath[len(self.projectPath):len(filePath)],
                 'lines': len(openFile)}
-        else:
-            self.info['generalFilesLines'][filePath] = {
+            else:
+                self.info['generalFilesLines'][filePath] = {
                 'pathInProject': filePath[len(self.projectPath):len(filePath)],
                 'lines': len(openFile)}
