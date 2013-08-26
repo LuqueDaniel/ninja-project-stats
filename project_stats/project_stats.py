@@ -52,8 +52,7 @@ class projectStatsDialog(QDialog):
 
         #tabMenu
         tabMenu = QTabWidget()
-        tabMenu.tabCloseRequested.connect(lambda: tabMenu.setTabPosition(1)
-                if tabMenu.tabPosition() == 0 else tabMenu.setTabPosition(0))
+        tabMenu.tabCloseRequested.connect(tabMenu.removeTab)
         tabMenu.setMovable(True)
         tabMenu.setTabsClosable(True)
 
