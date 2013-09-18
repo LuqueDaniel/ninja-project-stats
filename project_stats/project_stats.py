@@ -63,7 +63,7 @@ class projectStatsDialog(QDialog):
 
         #Add table fileTabGeneral at layoutTabGeneral
         fileTableGeneral = QTableWidget(0, 2)
-        self._configTable(fileTableGeneral, 'generalFilesLines')
+        self.__configTable(fileTableGeneral, 'generalFilesLines')
 
         for each_widget in (
             QLabel('Number of folders: {}'.format(self.projectStats.info['numberFolders'])),
@@ -84,7 +84,7 @@ class projectStatsDialog(QDialog):
 
             #add table fileTablelist at layoutTabPy
             fileTablePy = QTableWidget(10, 2)
-            self._configTable(fileTablePy, 'pyFilesLines')
+            self.__configTable(fileTablePy, 'pyFilesLines')
 
             for each_widget in (
                 QLabel('Number of .py files: {}'.format(self.projectStats.info['numberPyFiles'])),
@@ -106,7 +106,7 @@ class projectStatsDialog(QDialog):
         #add tabMenu
         vLayout.addLayout(layoutTab)
 
-    def _configTable(self, table, dictKey):
+    def __configTable(self, table, dictKey):
         """This function configure a table.
 
         Parameters:
@@ -147,13 +147,13 @@ class projectStatsMain(plugin.Plugin):
 
         #Create plugin menu
         menu = QMenu('Project Stats')
-        menu.addAction('Project Stats', lambda: self.projectStatAction())
+        menu.addAction('Project Stats', lambda: self.projectStatsMenuAction())
 
         #Add Project Stats menu
         self.ex_locator = self.locator.get_service('explorer')
         self.ex_locator.add_project_menu(menu)
 
-    def projectStatAction(self):
+    def projectStatsMenuAction(self):
         """Init projectStatsDialog"""
 
         #Get project properties
