@@ -47,6 +47,11 @@ class projectStatsDialog(QDialog):
         self.setMinimumSize(500, 400)
         self.setMaximumSize(0, 0)
 
+        #List contain the text of labels.
+        self.textLabels = ['Number of folders: {}', 'Number of files: {}',
+                           'Total number of lines: {}', 'Number of .py files: {}',
+                           'Number of .pyc files: {}', 'Total number of lines: {}']
+
         #get project stats --> getStats
         self.projectStats = getStats(projectInfo.path)
 
@@ -57,9 +62,9 @@ class projectStatsDialog(QDialog):
         tabMenu.setTabsClosable(True)
 
         #Create labels for tabGeneral
-        self.generalNumberFolders = QLabel('Number of folders: {}'.format(self.projectStats.info['numberFolders']))
-        self.generalNumberFiles = QLabel('Number of files: {}'.format(self.projectStats.info['numberFiles']))
-        self.generalNumberLines = QLabel('Total number of lines: {}'.format(self.projectStats.info['numberLines']))
+        self.generalNumberFolders = QLabel(self.textLabels[0].format(self.projectStats.info['numberFolders']))
+        self.generalNumberFiles = QLabel(self.textLabels[1].format(self.projectStats.info['numberFiles']))
+        self.generalNumberLines = QLabel(self.textLabels[2].format(self.projectStats.info['numberLines']))
 
         #Create tablefilesgeneral
         tableFilesGeneral = QTableWidget(0, 2)
@@ -93,9 +98,9 @@ class projectStatsDialog(QDialog):
             layoutTabPy = QVBoxLayout()
 
             #Create labels for tabPy
-            self.pyNumberFiles = QLabel('Number of .py files: {}'.format(self.projectStats.info['numberPyFiles']))
-            self.pyNumberFilesPyc =QLabel('Number of .pyc files: {}'.format(self.projectStats.info['numberPycFiles']))
-            self.pyNumberLines = QLabel('Total number of lines: {}'.format(self.projectStats.info['numberPyLines']))
+            self.pyNumberFiles = QLabel(self.textLabels[3].format(self.projectStats.info['numberPyFiles']))
+            self.pyNumberFilesPyc =QLabel(self.textLabels[4].format(self.projectStats.info['numberPycFiles']))
+            self.pyNumberLines = QLabel(self.textLabels[5].format(self.projectStats.info['numberPyLines']))
 
             #Create table tableFilesPy
             tableFilesPy = QTableWidget(10, 2)
