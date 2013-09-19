@@ -57,19 +57,21 @@ class projectStatsDialog(QDialog):
         tabMenu.setTabsClosable(True)
 
         #LAYOUTS
-        #layoutTab
+        #Create layoutTabs and layoutTabGeneral
         layoutTabs, layoutTabGeneral = QVBoxLayout(), QVBoxLayout()
+
+        #Add tabMenu to layoutTabs
         layoutTabs.addWidget(tabMenu)
 
         #Add table fileTabGeneral at layoutTabGeneral
-        fileTableGeneral = QTableWidget(0, 2)
-        self.__configTable(fileTableGeneral, 'generalFilesLines')
+        tableFilesGeneral = QTableWidget(0, 2)
+        self.__configTable(tableFilesGeneral, 'generalFilesLines')
 
         for each_widget in (
             QLabel('Number of folders: {}'.format(self.projectStats.info['numberFolders'])),
             QLabel('Number of files: {}'.format(self.projectStats.info['numberFiles'])),
             QLabel('Total number of lines: {}'.format(self.projectStats.info['numberLines'])),
-            fileTableGeneral):
+            tableFilesGeneral):
             layoutTabGeneral.addWidget(each_widget)
 
         #add widget tabGeneral at tabMenu
@@ -83,14 +85,14 @@ class projectStatsDialog(QDialog):
             layoutTabPy = QVBoxLayout()
 
             #add table fileTablelist at layoutTabPy
-            fileTablePy = QTableWidget(10, 2)
-            self.__configTable(fileTablePy, 'pyFilesLines')
+            tableFilesPy = QTableWidget(10, 2)
+            self.__configTable(tableFilesPy, 'pyFilesLines')
 
             for each_widget in (
                 QLabel('Number of .py files: {}'.format(self.projectStats.info['numberPyFiles'])),
                 QLabel('Number of .pyc files: {}'.format(self.projectStats.info['numberPycFiles'])),
                 QLabel('Total number of lines: {}'.format(self.projectStats.info['numberPyLines'])),
-                fileTablePy):
+                tableFilesPy):
                 layoutTabPy.addWidget(each_widget)
 
             #add Widget TabPy at tabMenu
