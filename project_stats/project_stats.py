@@ -58,8 +58,8 @@ class projectStatsDialog(QDialog):
 
         #LAYOUTS
         #layoutTab
-        layoutTab, layoutTabGeneral = QVBoxLayout(), QVBoxLayout()
-        layoutTab.addWidget(tabMenu)
+        layoutTabs, layoutTabGeneral = QVBoxLayout(), QVBoxLayout()
+        layoutTabs.addWidget(tabMenu)
 
         #Add table fileTabGeneral at layoutTabGeneral
         fileTableGeneral = QTableWidget(0, 2)
@@ -104,7 +104,7 @@ class projectStatsDialog(QDialog):
         vLayout.addWidget(QLabel('<b>Project name:</b> {}'.format(
                                                             projectInfo.name)))
         #add tabMenu
-        vLayout.addLayout(layoutTab)
+        vLayout.addLayout(layoutTabs)
 
     def __configTable(self, table, dictKey):
         """This function configure a table.
