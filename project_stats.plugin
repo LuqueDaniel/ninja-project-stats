@@ -1,8 +1,8 @@
 {
-  "url": "https://github.com/LuqueDaniel/ninja-project-stats", 
-  "version": "0.3", 
-  "class": "projectStatsMain", 
-  "module": "project_stats", 
+  "url": "https://github.com/LuqueDaniel/ninja-project-stats",
+  "version": "0.4",
+  "class": "projectStatsMain",
+  "module": "project_stats",
   "authors": "Daniel Luque <danielluque14@gmail.com>",
   "description": "A simple plugin for get stats of projects"
 }

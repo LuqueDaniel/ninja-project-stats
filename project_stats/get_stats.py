@@ -20,17 +20,13 @@
 """
 
 #OS imports
-from os import listdir
-from os import path
+from os import (listdir, path)
 
 #RE imports
-from re import search
-from re import IGNORECASE
+from re import (search, IGNORECASE)
 
 #PROJECT-STATS imports
-from .resources import IGNORE_FILES
-from .resources import IGNORE_FOLDERS
-from .resources import IGNORE_FILE_TYPES
+from .resources import (IGNORE_FILES, IGNORE_FOLDERS, IGNORE_FILE_TYPES)
 
 
 class getStats(object):

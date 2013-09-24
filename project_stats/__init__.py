@@ -19,6 +19,6 @@ from project_stats import projectStatsMain
 __author__ = 'Daniel Luque'
 __mail__ = 'danielluque14@gmail.com'
 __url__ = 'http://ninja-ide.org/plugins/39/'
-__version__ = '0.3'
+__version__ = '0.4'
 __source__ = 'http://github.com/machinalis/ninja-django-plugin'
 __license__ = 'GPLv3'
