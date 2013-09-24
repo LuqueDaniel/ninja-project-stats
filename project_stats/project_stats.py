@@ -61,15 +61,6 @@ class projectStatsDialog(QDialog):
         tabMenu.setMovable(True)
         tabMenu.setTabsClosable(True)
 
-        #Create labels for tabGeneral
-        self.generalNumberFolders = QLabel(self.textLabels[0].format(self.projectStats.info['numberFolders']))
-        self.generalNumberFiles = QLabel(self.textLabels[1].format(self.projectStats.info['numberFiles']))
-        self.generalNumberLines = QLabel(self.textLabels[2].format(self.projectStats.info['numberLines']))
-
-        #Create tablefilesgeneral
-        tableFilesGeneral = QTableWidget(0, 2)
-        self.__configTable(tableFilesGeneral, 'generalFilesLines')
-
         #LAYOUTS
         #==Create central layout
         vLayout = QVBoxLayout(self)
@@ -79,6 +70,15 @@ class projectStatsDialog(QDialog):
                                                             projectInfo.name)))
         #==Create layoutTabGeneral and layoutTabs
         layoutTabGeneral, layoutTabs = QVBoxLayout(), QVBoxLayout()
+
+        #Create labels for tabGeneral
+        self.generalNumberFolders = QLabel(self.textLabels[0].format(self.projectStats.info['numberFolders']))
+        self.generalNumberFiles = QLabel(self.textLabels[1].format(self.projectStats.info['numberFiles']))
+        self.generalNumberLines = QLabel(self.textLabels[2].format(self.projectStats.info['numberLines']))
+
+        #Create tablefilesgeneral
+        tableFilesGeneral = QTableWidget(0, 2)
+        self.__configTable(tableFilesGeneral, 'generalFilesLines')
 
         #Add widgets to layoutTabGeneral
         for each_widget in (self.generalNumberFolders, self.generalNumberFiles,
