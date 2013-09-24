@@ -2,8 +2,8 @@ import zipfile
 import os
 import re
 
-folders = ('project_stats')
-path_list = ('project_stats.plugin')
+folders = ['project_stats']
+path_list = ['project_stats.plugin']
 
 
 def get_file_list(path):
