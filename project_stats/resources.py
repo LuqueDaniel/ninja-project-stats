@@ -34,6 +34,7 @@ IGNORE_FILES = ('Thumbs.db')
 re_file_types = ('.+(', '\.pyc|', '\.py|', '\.mkv|', '\.mp3|', '\.db|',
                  '\.psd|', '\.doc|', '\.pdf|', '\.bmp|', '\.png|', '\.ico|',
                  '\.gif|', '\.jpg|', '\.jpeg|', '\.xcf|', '\.swf|', '\.zip|',
-                 '\.rar|', '\.iso|', '\.dll|', '\.exe', ')$')
+                 '\.rar|', '\.iso|', '\.tar.gz|', '\.msi|', '\.dll|', '\.tar|',
+                 '\.exe', ')$')
 
 IGNORE_FILE_TYPES = ''.join(re_file_types)
