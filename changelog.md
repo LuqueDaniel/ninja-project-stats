@@ -2,7 +2,8 @@ Project-Stats - Changelog
 =========================================
 
 - **Project-Stats 0.5** - ()
-	- Added Alternating Rows on tables. By [juancarlospaco](https://github.com/juancarlospaco)
+	- Added Alternating Rows on tables. By [juancarlospaco](https://github.com/juancarlospaco).
+        - Added new file types.
 
 - **Project-Stats 0.4** - (07/21/2013)
         - Added more compatibility with Python 3.

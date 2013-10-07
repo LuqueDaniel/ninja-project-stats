@@ -155,6 +155,7 @@ class projectStatsDialog(QDialog):
             table.setItem(row, 1, QTableWidgetItem(str(item[1]['lines'])))
             row += 1
 
+
 class projectStatsMain(plugin.Plugin):
     """Main class of the plugin.
 
