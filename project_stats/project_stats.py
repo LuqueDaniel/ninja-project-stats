@@ -99,11 +99,11 @@ class projectStatsDialog(QDialog):
 
             #Create labels for tabPy
             self.pyNumberFiles = QLabel(self.textLabels[3].format(self.projectStats.info['numberPyFiles']))
-            self.pyNumberFilesPyc =QLabel(self.textLabels[4].format(self.projectStats.info['numberPycFiles']))
+            self.pyNumberFilesPyc = QLabel(self.textLabels[4].format(self.projectStats.info['numberPycFiles']))
             self.pyNumberLines = QLabel(self.textLabels[5].format(self.projectStats.info['numberPyLines']))
 
             #Create table tableFilesPy
-            tableFilesPy = QTableWidget(10, 2)
+            tableFilesPy = QTableWidget(0, 2)
             self.__configTable(tableFilesPy, 'pyFilesLines')
 
             #Add widgets to layoutTabPy
@@ -145,6 +145,9 @@ class projectStatsDialog(QDialog):
         table.horizontalHeader().setStretchLastSection(True)
         #Set width of columns
         table.setColumnWidth(0, 250)
+        #Set Alternating row colors
+        table.setAlternatingRowColors(True)
+        table.setStyleSheet("alternate-background-color: #222222;")
 
         row = 0
         for item in list(self.projectStats.info[dictKey].items()):
