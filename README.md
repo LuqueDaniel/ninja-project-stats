@@ -9,7 +9,11 @@ Download packages.
 ----------------------------------------------------------------------------------------------------------------
 - **Download and install from NINJA-IDE plugin manager.**
 - **[Download from NINJA-IDE site](http://ninja-ide.org/plugins/39/).**
-- **[Download version 0.4](https://github.com/LuqueDaniel/ninja-project-stats/releases/tag/0.4).**
+- **[Download version 0.5](https://github.com/LuqueDaniel/ninja-project-stats/releases/tag/0.5).**
+
+Screenshots.
+----------------------------------------------------------------------------------------------------------------
+![screenshot](https://raw.github.com/LuqueDaniel/ninja-project-stats/master/screenshots/ninja_project_stats_0.5.png)
 
 Changelog.
 ----------------------------------------------------------------------------------------------------------------

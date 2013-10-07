@@ -1,3 +1,4 @@
+import project_stats
 import zipfile
 import os
 import re
@@ -15,7 +16,7 @@ def get_file_list(path):
             path_list.append(item_src)
 
 
-with zipfile.ZipFile('ninja-project-stats.zip', 'w') as zip_file:
+with zipfile.ZipFile('ninja-project-stats_{}.zip'.format(project_stats.__version__), 'w') as zip_file:
     for folder in folders:
         get_file_list(os.path.join(folder))
     for item in path_list:
