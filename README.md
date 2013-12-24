@@ -3,8 +3,8 @@ NINJA-IDE - Project-Stats plugin.
 **Project-Stats** is a plugin for **[NINJA-IDE](http://ninja-ide.org)**. Project-Stats gets stats of projects.
 
 Version: **0.5**<br />
-NINJA-IDE version: **>= 2.3**
-Licensed under: **GPLv3**<br />
+NINJA-IDE version: **>= 2.3**<br />
+Licensed under: **GPLv3**
 
 Download packages.
 ----------------------------------------------------------------------------------------------------------------
