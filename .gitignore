@@ -1,2 +1,5 @@
 # Ignore files .pyc
 *.pyc
+
+# Ignore files .zip
+*.zip
