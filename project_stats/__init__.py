@@ -14,7 +14,7 @@
 #
 # Source url (https://github.com/LuqueDaniel/ninja-project-stats)
 
-from project_stats import projectStatsMain
+from .project_stats import projectStatsMain
 
 __author__ = 'Daniel Luque'
 __mail__ = 'danielluque14@gmail.com'
