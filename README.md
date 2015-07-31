@@ -23,3 +23,4 @@ See **[changelog.md](https://github.com/LuqueDaniel/ninja-project-stats/blob/mas
 Special Thanks to.
 -----------------------------------------------------------------------------------------------------
 - **[juancarlospaco](https://github.com/juancarlospaco)**.
+- **[Pixdigit](https://github.com/Pixdigit)**.
