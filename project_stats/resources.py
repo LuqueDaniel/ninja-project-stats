@@ -31,9 +31,9 @@ IGNORE_FOLDERS = ('.git', '_MACOSX')
 IGNORE_FILES = ('Thumbs.db')
 
 #Tupla to ignore file extensions
-re_file_types = ('.+(', '\.pyc|', '\.py|', '\.mkv|', '\.mp3|', '\.db|',
+re_file_types = ('.+(', '\.pyc|', '\.pyo|', '\.py|', '\.mkv|', '\.mp3|', '\.db|',
                  '\.psd|', '\.doc|', '\.pdf|', '\.bmp|', '\.png|', '\.ico|',
-                 '\.gif|', '\.jpg|', '\.jpeg|', '\.xcf|', '\.swf|', '\.zip|',
+                 '\.gif|', '\.jpg|', '\.jpeg|', '\.tif|', '\.xcf|', '\.swf|', '\.zip|',
                  '\.rar|', '\.iso|', '\.tar.gz|', '\.msi|', '\.dll|', '\.tar|',
                  '\.apk|', '\.deb|', '\.rpm|', '\.exe', ')$')
 
